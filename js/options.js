@@ -5,10 +5,11 @@ const query = new URLSearchParams(location.search);
 		modifiers(string) {
 			string.split(",").forEach((modifier) => {
 				var link = document.createElement("link");
-				
+
 				link.setAttribute("rel", "stylesheet");
 				link.setAttribute("href", `./modifiers/${modifier}.css`);
-		
+
+				
 				document.head.appendChild(link);
 			});
 		}
@@ -21,7 +22,7 @@ const query = new URLSearchParams(location.search);
 			handlers[key](value);
 		}
 	});
-	
+
 	if (location.hash) {
 		// Legacy URL hash support
 		handlers.modifiers(location.hash.slice(1));
